@@ -1,0 +1,9 @@
+{
+    "backup_action.create_backup.title": "Create a backup?",
+    "backup_action.create_backup.body": "Your health (§c%s§r) is below the backup threshold you set (%s).\nDo you want to create a backup (and overwrite the previous one)?\nThis message will not reappear for %s seconds.",
+
+    "backup_action.roll_back.title": "Roll back to the last backup?",
+    "backup_action.roll_back.body": "You just suffered lethal damage (§c%s§r).\nDo you want to roll back to the previous backup?",
+
+    "message.rolling_back": "Rolling back world"
+}

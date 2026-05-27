@@ -1,0 +1,9 @@
+{
+    "backup_action.create_backup.title": "创建备份？",
+    "backup_action.create_backup.body": "你的生命值（§c%s§r）低于你设置的备份阈值（%s），是否要创建一个备份（并覆盖掉上一个）？\n%s 秒内不会再次显示此提示。",
+
+    "backup_action.roll_back.title": "回滚到上一个备份？",
+    "backup_action.roll_back.body": "你刚刚受到了一次足以致命的伤害（§c%s§r）。\n你想回到上一个备份吗？",
+
+    "message.rolling_back": "回滚世界中"
+}
