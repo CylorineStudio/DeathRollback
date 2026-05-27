@@ -60,5 +60,5 @@ jar {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/autobackup.accesswidener")
+    accessWidenerPath = file("src/main/resources/deathrollback.accesswidener")
 }

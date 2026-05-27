@@ -1,4 +1,4 @@
-package top.cylorinestudio.autobackup.mixin;
+package top.cylorinestudio.deathrollback.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.MessageScreen;
@@ -12,8 +12,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import top.cylorinestudio.autobackup.backup.BackupManager;
-import top.cylorinestudio.autobackup.screen.BackupActionScreen;
+import top.cylorinestudio.deathrollback.backup.BackupManager;
+import top.cylorinestudio.deathrollback.screen.BackupActionScreen;
 
 import java.nio.file.Path;
 

@@ -1,4 +1,4 @@
-package top.cylorinestudio.autobackup.backup;
+package top.cylorinestudio.deathrollback.backup;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.MinecraftClient;
@@ -17,7 +17,7 @@ public class BackupManager {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     private static Path getBackupFilePath(String directoryName) {
-        return MinecraftClient.getInstance().runDirectory.toPath().resolve("AutoBackup").resolve("backups").resolve(directoryName + ".zip");
+        return MinecraftClient.getInstance().runDirectory.toPath().resolve("DeathRollback").resolve("backups").resolve(directoryName + ".zip");
     }
 
     public static void createBackup(Path worldDirectory) throws IOException {

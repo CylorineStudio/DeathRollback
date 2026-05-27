@@ -1,4 +1,4 @@
-package top.cylorinestudio.autobackup.screen;
+package top.cylorinestudio.deathrollback.screen;
 
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import net.minecraft.client.MinecraftClient;

@@ -1,26 +1,26 @@
 {
     "schemaVersion": 1,
-    "id": "autobackup",
+    "id": "deathrollback",
     "version": "${version}",
-    "name": "AutoBackup",
+    "name": "DeathRollback",
     "description": "",
     "authors": [],
     "contact": {},
-    "license": "All-Rights-Reserved",
-    "icon": "assets/autobackup/icon.png",
+    "license": "MIT",
+    "icon": "assets/deathrollback/icon.png",
     "environment": "client",
     "entrypoints": {
         "main": [
-            "top.cylorinestudio.autobackup.AutoBackup"
+            "top.cylorinestudio.deathrollback.DeathRollback"
         ]
     },
     "mixins": [
-        "autobackup.mixins.json"
+        "deathrollback.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=${loader_version}",
         "fabric-api": "*",
         "minecraft": "${minecraft_version}"
     },
-    "accessWidener": "autobackup.accesswidener"
+    "accessWidener": "deathrollback.accesswidener"
 }
