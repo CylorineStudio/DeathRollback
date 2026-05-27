@@ -29,7 +29,7 @@ public class PlayerEntityMixin {
 
         MinecraftClient client = MinecraftClient.getInstance();
         client.execute(() -> {
-            if (client.world == null || client.getServer() == null) return;
+            if (client.world == null || client.getServer() == null || client.getServer().isRemote()) return;
             String directoryName = client.getServer().session.getDirectoryName();
             Path worldPath = client.runDirectory.toPath().resolve("saves").resolve(directoryName);
 

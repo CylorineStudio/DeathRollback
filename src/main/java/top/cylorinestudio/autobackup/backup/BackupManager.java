@@ -2,8 +2,6 @@ package top.cylorinestudio.autobackup.backup;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.util.path.SymlinkValidationException;
-import net.minecraft.world.level.storage.LevelStorage;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
@@ -17,10 +15,6 @@ import java.util.zip.ZipOutputStream;
 
 public class BackupManager {
     private static final Logger LOGGER = LogUtils.getLogger();
-
-    private static LevelStorage.Session createSession(String directoryName) throws IOException, SymlinkValidationException {
-        return MinecraftClient.getInstance().getLevelStorage().createSession(directoryName);
-    }
 
     private static Path getBackupFilePath(String directoryName) {
         return MinecraftClient.getInstance().runDirectory.toPath().resolve("AutoBackup").resolve("backups").resolve(directoryName + ".zip");

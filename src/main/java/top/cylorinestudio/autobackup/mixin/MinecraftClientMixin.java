@@ -17,7 +17,6 @@ public class MinecraftClientMixin {
     @Inject(method = "setScreen", at = @At("HEAD"), cancellable = true)
     private void setScreen(Screen screen, CallbackInfo ci) {
         if (this.currentScreen instanceof BackupActionScreen backupActionScreen && screen != null) {
-            System.out.println(1);
             backupActionScreen.openOnFinish(screen);
             ci.cancel();
         }
