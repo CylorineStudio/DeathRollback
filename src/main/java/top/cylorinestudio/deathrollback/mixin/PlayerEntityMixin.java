@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import top.cylorinestudio.deathrollback.DeathRollback;
 import top.cylorinestudio.deathrollback.backup.BackupManager;
 import top.cylorinestudio.deathrollback.screen.BackupActionScreen;
 
@@ -56,8 +57,9 @@ public class PlayerEntityMixin {
                         ));
                     }
                 }, amount));
-            } else if (remainingHealth < 10) {
-                if (System.currentTimeMillis() - lastShowBackup < 30 * 1000) return;
+            } else if (remainingHealth < DeathRollback.getInstance().getConfig().backupThreshold) {
+                int backupMessageInterval = DeathRollback.getInstance().getConfig().backupMessageInterval;
+                if (System.currentTimeMillis() - lastShowBackup < backupMessageInterval * 1000L) return;
                 lastShowBackup = System.currentTimeMillis();
                 client.setScreen(BackupActionScreen.create(b -> {
                     if (!b) return;

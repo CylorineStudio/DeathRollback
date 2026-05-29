@@ -5,5 +5,12 @@
     "backup_action.roll_back.title": "回滚到上一个备份？",
     "backup_action.roll_back.body": "你刚刚受到了一次足以致命的伤害（§c%s§r）。\n你想回到上一个备份吗？",
 
-    "message.rolling_back": "回滚世界中"
+    "message.rolling_back": "回滚世界中",
+
+    "config.title": "DeathRollback 配置",
+    "config.category.general": "通用",
+    "config.backup_threshold": "备份阈值",
+    "config.backup_threshold.description": "触发备份提示所需的生命值。",
+    "config.backup_message_interval": "备份提示间隔",
+    "config.backup_message_interval.description": "关闭备份提示后，距离下一次备份提示显示的间隔时间。"
 }

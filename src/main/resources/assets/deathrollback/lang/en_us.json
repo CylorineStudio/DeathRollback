@@ -5,5 +5,12 @@
     "backup_action.roll_back.title": "Roll back to the last backup?",
     "backup_action.roll_back.body": "You just suffered lethal damage (§c%s§r).\nDo you want to roll back to the previous backup?",
 
-    "message.rolling_back": "Rolling back world"
+    "message.rolling_back": "Rolling back world",
+
+    "config.title": "DeathRollback Configs",
+    "config.category.general": "General",
+    "config.backup_threshold": "Backup threshold",
+    "config.backup_threshold.description": "The health value that the player must drop below to trigger a backup reminder.",
+    "config.backup_message_interval": "Backup message interval",
+    "config.backup_message_interval.description": "The minimum time interval before the next backup reminder appears after closing the current one."
 }

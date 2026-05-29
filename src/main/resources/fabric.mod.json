@@ -12,6 +12,9 @@
     "entrypoints": {
         "main": [
             "top.cylorinestudio.deathrollback.DeathRollback"
+        ],
+        "modmenu": [
+            "top.cylorinestudio.deathrollback.modmenu.DeathRollbackModMenuApiImpl"
         ]
     },
     "mixins": [
