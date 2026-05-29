@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import top.cylorinestudio.deathrollback.DeathRollback;
 import top.cylorinestudio.deathrollback.backup.BackupManager;
+import top.cylorinestudio.deathrollback.config.ModConfig;
 import top.cylorinestudio.deathrollback.screen.BackupActionScreen;
 
 import java.nio.file.Path;
@@ -29,6 +30,7 @@ public class PlayerEntityMixin {
         float remainingHealth = self.getHealth() - amount;
 
         MinecraftClient client = MinecraftClient.getInstance();
+        ModConfig config = DeathRollback.getInstance().getConfig();
         client.execute(() -> {
             if (client.world == null || client.getServer() == null || client.getServer().isRemote()) return;
             String directoryName = client.getServer().session.getDirectoryName();
@@ -57,8 +59,8 @@ public class PlayerEntityMixin {
                         ));
                     }
                 }, amount));
-            } else if (remainingHealth < DeathRollback.getInstance().getConfig().backupThreshold) {
-                int backupMessageInterval = DeathRollback.getInstance().getConfig().backupMessageInterval;
+            } else if (remainingHealth < config.backupThreshold) {
+                int backupMessageInterval = config.backupMessageInterval;
                 if (System.currentTimeMillis() - lastShowBackup < backupMessageInterval * 1000L) return;
                 lastShowBackup = System.currentTimeMillis();
                 client.setScreen(BackupActionScreen.create(b -> {
@@ -74,7 +76,7 @@ public class PlayerEntityMixin {
                                 Text.literal(message)
                         ));
                     }
-                }, remainingHealth, 10, 30));
+                }, remainingHealth, config.backupThreshold, config.backupMessageInterval));
             }
         });
     }
