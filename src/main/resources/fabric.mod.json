@@ -3,15 +3,24 @@
     "id": "deathrollback",
     "version": "${version}",
     "name": "DeathRollback",
-    "description": "",
-    "authors": [],
-    "contact": {},
+    "description": "A Minecraft mod that backs up your world when your health is low and rolls it back upon death.",
+    "authors": [
+        "AnemoFlower"
+    ],
+    "contact": {
+        "homepage": "https://modrinth.com/mod/deathrollback",
+        "issues": "https://github.com/CylorineStudio/DeathRollback/issues",
+        "sources": "https://github.com/CylorineStudio/DeathRollback"
+    },
     "license": "MIT",
     "icon": "assets/deathrollback/icon.png",
     "environment": "client",
     "entrypoints": {
         "main": [
             "top.cylorinestudio.deathrollback.DeathRollback"
+        ],
+        "modmenu": [
+            "top.cylorinestudio.deathrollback.modmenu.DeathRollbackModMenuApiImpl"
         ]
     },
     "mixins": [
@@ -20,7 +29,11 @@
     "depends": {
         "fabricloader": ">=${loader_version}",
         "fabric-api": "*",
-        "minecraft": "${minecraft_version}"
+        "minecraft": "${minecraft_version}",
+        "cloth-config": ">=15"
+    },
+    "recommends": {
+        "modmenu": ">=11"
     },
     "accessWidener": "deathrollback.accesswidener"
 }

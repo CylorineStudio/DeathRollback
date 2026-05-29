@@ -19,8 +19,8 @@ public class BackupActionScreen extends ConfirmScreen {
         super(callback, title, message);
     }
 
-    public static BackupActionScreen create(BooleanConsumer callback, float health, float threshold, int cooldown) {
-        return new BackupActionScreen(wrapCallback(callback), CREATE_BACKUP_TITLE, Text.translatable(CREATE_BACKUP_BODY_KEY, health, threshold, cooldown));
+    public static BackupActionScreen create(BooleanConsumer callback, float health, float threshold, int interval) {
+        return new BackupActionScreen(wrapCallback(callback), CREATE_BACKUP_TITLE, Text.translatable(CREATE_BACKUP_BODY_KEY, health, threshold, interval));
     }
 
     public static BackupActionScreen rollback(BooleanConsumer callback, float amount) {
