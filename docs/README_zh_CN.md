@@ -10,6 +10,7 @@
 
 <div align="center">
     <a href="/docs/README.md">English</a>
+    |
     <span>简体中文</span>
 </div>
 
