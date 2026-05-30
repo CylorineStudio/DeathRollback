@@ -1,6 +1,6 @@
 <div align="center">
     <h1>DeathRollback</h1>
-    <a href="https://modrinth.com/project/deathrollback"><img src="https://img.shields.io/modrinth/dt/deathrollback?style=flat-square&color=242629&logo=modrinth" alt="Downloads"></a>
+    <a href="https://modrinth.com/project/deathrollback"><img src="https://img.shields.io/modrinth/dt/deathrollback?style=flat&color=242629&logo=modrinth" alt="Downloads"></a>
     <img src="https://img.shields.io/github/stars/CylorineStudio/DeathRollback?style=flat&color=yellow" alt="Stars">
     <img src="https://img.shields.io/github/commit-activity/m/CylorineStudio/DeathRollback?style=flat&color=blue" alt="Activity">
     <img src="https://img.shields.io/github/contributors/CylorineStudio/DeathRollback?style=flat&color=green" alt="Contributors">
@@ -22,10 +22,13 @@
 - **死亡回滚**：在玩家死亡时弹出回滚提示，确认后可以回到上一个备份。
 - **高配置性**：支持自定义备份触发的生命值、提示冷却时间等。
 
+> [!WARNING]
+> 由于备份机制限制，本模组**仅支持单人游戏**，在多人游戏或局域网世界中不可用。
+
 ## 兼容性
 
 - **Mod 加载器**：仅支持 Fabric。
-- **游戏版本**：目前仅能保证在 **1.21 / 1.21.11** 上稳定可用，更多版本的支持已在开发计划中。
+- **游戏版本**：目前仅能保证在 **1.21 / 1.21.1** 上稳定可用，更多版本的支持已在开发计划中。
 
 ## 依赖项
 
