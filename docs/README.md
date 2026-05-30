@@ -8,6 +8,11 @@
 
 <br>
 
+<div align="center">
+    <span>English</span>
+    <a href="/docs/README_zh_CN.md">简体中文</a>
+</div>
+
 **DeathRollback** is a Minecraft Survival/Hardcore utility mod that helps you create backups when your health is low and roll back your world upon death.
 
 > [!NOTE]

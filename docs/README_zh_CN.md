@@ -5,7 +5,13 @@
     <img src="https://img.shields.io/github/commit-activity/m/CylorineStudio/DeathRollback?style=flat&color=blue" alt="Activity">
     <img src="https://img.shields.io/github/contributors/CylorineStudio/DeathRollback?style=flat&color=green" alt="Contributors">
 </div>
+
 <br>
+
+<div align="center">
+    <a href="/docs/README.md">English</a>
+    <span>简体中文</span>
+</div>
 
 **DeathRollback** 是一个 Minecraft 生存/极限辅助 Mod，它可以帮助你在生命值降低时创建备份，并在死亡时回滚。
 
