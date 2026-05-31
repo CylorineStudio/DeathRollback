@@ -16,7 +16,7 @@
     "icon": "assets/deathrollback/icon.png",
     "environment": "client",
     "entrypoints": {
-        "main": [
+        "client": [
             "top.cylorinestudio.deathrollback.DeathRollback"
         ],
         "modmenu": [

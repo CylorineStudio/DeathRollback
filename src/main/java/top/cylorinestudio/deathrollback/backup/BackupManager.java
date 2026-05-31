@@ -20,6 +20,10 @@ public class BackupManager {
         return MinecraftClient.getInstance().runDirectory.toPath().resolve("DeathRollback").resolve("backups").resolve(directoryName + ".zip");
     }
 
+    public static Path toWorldPath(String worldName) {
+        return MinecraftClient.getInstance().runDirectory.toPath().resolve("saves").resolve(worldName);
+    }
+
     public static void createBackup(Path worldDirectory) throws IOException {
         Path backupFilePath = getBackupFilePath(worldDirectory.getFileName().toString());
         if (Files.exists(backupFilePath)) {
@@ -71,6 +75,12 @@ public class BackupManager {
             }
         }
 
+        return true;
+    }
+
+    public static boolean deleteBackup(String worldName) throws IOException {
+        if (!hasBackup(worldName)) return false;
+        Files.delete(getBackupFilePath(worldName));
         return true;
     }
 

@@ -12,5 +12,13 @@
     "config.backup_threshold": "备份阈值",
     "config.backup_threshold.description": "触发备份提示所需的生命值。",
     "config.backup_message_interval": "备份提示间隔",
-    "config.backup_message_interval.description": "关闭备份提示后，距离下一次备份提示显示的间隔时间。"
+    "config.backup_message_interval.description": "关闭备份提示后，距离下一次备份提示显示的间隔时间。",
+
+    "toast.rollback_failed": "回滚失败",
+
+    "commands.deathrollback.success.backup": "备份成功",
+    "commands.deathrollback.success.delete": "成功删除此世界的备份",
+    "commands.deathrollback.error.not_in_singleplayer_world": "你必须在单人游戏中才能使用此命令",
+    "commands.deathrollback.error.no_backup": "这个世界没有任何备份",
+    "commands.deathrollback.error.delete_failed": "删除备份失败：%s"
 }
