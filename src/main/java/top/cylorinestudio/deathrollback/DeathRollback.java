@@ -3,7 +3,9 @@ package top.cylorinestudio.deathrollback;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
+import top.cylorinestudio.deathrollback.command.DeathRollbackCommand;
 import top.cylorinestudio.deathrollback.config.ModConfig;
 
 import java.io.BufferedReader;
@@ -12,7 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class DeathRollback implements ModInitializer {
+public class DeathRollback implements ClientModInitializer {
     public static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
             .create();
@@ -22,19 +24,9 @@ public class DeathRollback implements ModInitializer {
     private ModConfig config;
 
     @Override
-    public void onInitialize() {
-        if (Files.exists(CONFIG_PATH)) {
-            try (BufferedReader reader = Files.newBufferedReader(CONFIG_PATH)) {
-                this.config = GSON.fromJson(reader, new TypeToken<>() {
-                });
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            this.config = new ModConfig();
-            saveConfig();
-        }
-
+    public void onInitializeClient() {
+        loadConfig();
+        DeathRollbackCommand.register();
         instance = this;
     }
 
@@ -55,5 +47,19 @@ public class DeathRollback implements ModInitializer {
 
     public static DeathRollback getInstance() {
         return instance;
+    }
+
+    private void loadConfig() {
+        if (Files.exists(CONFIG_PATH)) {
+            try (BufferedReader reader = Files.newBufferedReader(CONFIG_PATH)) {
+                this.config = GSON.fromJson(reader, new TypeToken<>() {
+                });
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            this.config = new ModConfig();
+            saveConfig();
+        }
     }
 }

@@ -30,53 +30,19 @@ public class PlayerEntityMixin {
         float remainingHealth = self.getHealth() - amount;
 
         MinecraftClient client = MinecraftClient.getInstance();
+        Path worldPath = BackupActionScreen.getCurrentWorldPath();
+        if (worldPath == null) return;
+
         ModConfig config = DeathRollback.getInstance().getConfig();
         client.execute(() -> {
-            if (client.world == null || client.getServer() == null || client.getServer().isRemote()) return;
-            String directoryName = client.getServer().session.getDirectoryName();
-            Path worldPath = client.runDirectory.toPath().resolve("saves").resolve(directoryName);
-
             if (remainingHealth <= 0) {
-                if (!BackupManager.hasBackup(directoryName)) return;
-                client.setScreen(BackupActionScreen.rollback(b -> {
-                    if (!b) return;
-
-                    client.world.disconnect();
-                    client.disconnect(new MessageScreen(Text.translatable("message.rolling_back")));
-
-                    try {
-                        BackupManager.rollback(worldPath);
-                        client.createIntegratedServerLoader().start(directoryName, () -> {
-                            client.setScreen(null);
-                            client.setScreen(new TitleScreen());
-                        });
-                    } catch (Exception e) {
-                        String message = e.getMessage() == null ? e.getClass().getName() : e.getMessage();
-                        client.getToastManager().add(new SystemToast(
-                                SystemToast.Type.WORLD_BACKUP,
-                                Text.translatable("selectWorld.edit.backupFailed"),
-                                Text.literal(message)
-                        ));
-                    }
-                }, amount));
+                if (!BackupManager.hasBackup(worldPath.getFileName().toString())) return;
+                client.setScreen(BackupActionScreen.rollback(amount));
             } else if (remainingHealth < config.backupThreshold) {
                 int backupMessageInterval = config.backupMessageInterval;
                 if (System.currentTimeMillis() - lastShowBackup < backupMessageInterval * 1000L) return;
                 lastShowBackup = System.currentTimeMillis();
-                client.setScreen(BackupActionScreen.create(b -> {
-                    if (!b) return;
-                    try {
-                        client.getServer().execute(() -> client.getServer().saveAll(false, true, false));
-                        BackupManager.createBackup(worldPath);
-                    } catch (Exception e) {
-                        String message = e.getMessage() == null ? e.getClass().getName() : e.getMessage();
-                        client.getToastManager().add(new SystemToast(
-                                SystemToast.Type.WORLD_BACKUP,
-                                Text.translatable("selectWorld.edit.backupFailed"),
-                                Text.literal(message)
-                        ));
-                    }
-                }, remainingHealth, config.backupThreshold, config.backupMessageInterval));
+                client.setScreen(BackupActionScreen.create(remainingHealth, config.backupThreshold, config.backupMessageInterval));
             }
         });
     }

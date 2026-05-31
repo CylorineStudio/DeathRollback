@@ -12,5 +12,10 @@
     "config.backup_threshold": "Backup threshold",
     "config.backup_threshold.description": "The health value that the player must drop below to trigger a backup reminder.",
     "config.backup_message_interval": "Backup message interval",
-    "config.backup_message_interval.description": "The minimum time interval before the next backup reminder appears after closing the current one."
+    "config.backup_message_interval.description": "The minimum time interval before the next backup reminder appears after closing the current one.",
+
+    "toast.rollback_failed": "Rollback failed",
+
+    "commands.deathrollback.success.backup": "Backup successful",
+    "commands.deathrollback.error.not_in_singleplayer_world": "You must be in a singleplayer world to use this command"
 }
