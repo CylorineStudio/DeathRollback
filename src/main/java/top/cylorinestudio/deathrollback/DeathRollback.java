@@ -8,6 +8,7 @@ import top.cylorinestudio.deathrollback.config.ModConfig;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -42,9 +43,12 @@ public class DeathRollback implements ModInitializer {
     }
 
     public void saveConfig() {
-        try (BufferedWriter writer = Files.newBufferedWriter(CONFIG_PATH)) {
-            GSON.toJson(this.config, writer);
-        } catch (Exception e) {
+        try {
+            Files.createDirectories(CONFIG_PATH.getParent());
+            try (BufferedWriter writer = Files.newBufferedWriter(CONFIG_PATH)) {
+                GSON.toJson(this.config, writer);
+            }
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
