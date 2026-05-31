@@ -74,13 +74,13 @@ public class BackupActionScreen extends ConfirmScreen {
     public static boolean rollback() {
         MinecraftClient client = MinecraftClient.getInstance();
         Path worldPath = getCurrentWorldPath();
-        if (worldPath == null) return false;
+        if (worldPath == null || !BackupManager.hasBackup(worldPath.getFileName().toString())) return false;
 
         Objects.requireNonNull(client.world).disconnect();
         client.disconnect(new MessageScreen(Text.translatable("message.rolling_back")));
 
         try {
-            BackupManager.rollback(worldPath);
+            if (!BackupManager.rollback(worldPath)) return false;
             client.createIntegratedServerLoader().start(worldPath.getFileName().toString(), () -> {
                 client.setScreen(null);
                 client.setScreen(new TitleScreen());

@@ -17,5 +17,8 @@
     "toast.rollback_failed": "Rollback failed",
 
     "commands.deathrollback.success.backup": "Backup successful",
-    "commands.deathrollback.error.not_in_singleplayer_world": "You must be in a singleplayer world to use this command"
+    "commands.deathrollback.success.delete": "Successfully deleted the backup for this world",
+    "commands.deathrollback.error.not_in_singleplayer_world": "You must be in a singleplayer world to use this command",
+    "commands.deathrollback.error.no_backup": "There are no backups for this world",
+    "commands.deathrollback.error.delete_failed": "Failed to delete backup: %s"
 }

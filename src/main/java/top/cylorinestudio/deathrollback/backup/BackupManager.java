@@ -78,6 +78,12 @@ public class BackupManager {
         return true;
     }
 
+    public static boolean deleteBackup(String worldName) throws IOException {
+        if (!hasBackup(worldName)) return false;
+        Files.delete(getBackupFilePath(worldName));
+        return true;
+    }
+
     public static boolean hasBackup(String worldName) {
         return Files.exists(getBackupFilePath(worldName));
     }

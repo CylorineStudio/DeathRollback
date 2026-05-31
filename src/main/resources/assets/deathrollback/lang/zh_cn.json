@@ -17,5 +17,6 @@
     "toast.rollback_failed": "回滚失败",
 
     "commands.deathrollback.success.backup": "备份成功",
-    "commands.deathrollback.error.not_in_singleplayer_world": "你必须在单人游戏中才能使用此命令"
+    "commands.deathrollback.error.not_in_singleplayer_world": "你必须在单人游戏中才能使用此命令",
+    "commands.deathrollback.error.no_backup": "这个世界没有任何备份"
 }

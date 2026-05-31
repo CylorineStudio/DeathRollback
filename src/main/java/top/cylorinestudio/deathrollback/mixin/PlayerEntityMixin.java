@@ -30,11 +30,11 @@ public class PlayerEntityMixin {
         float remainingHealth = self.getHealth() - amount;
 
         MinecraftClient client = MinecraftClient.getInstance();
-        Path worldPath = BackupActionScreen.getCurrentWorldPath();
-        if (worldPath == null) return;
-
         ModConfig config = DeathRollback.getInstance().getConfig();
         client.execute(() -> {
+            Path worldPath = BackupActionScreen.getCurrentWorldPath();
+            if (worldPath == null) return;
+
             if (remainingHealth <= 0) {
                 if (!BackupManager.hasBackup(worldPath.getFileName().toString())) return;
                 client.setScreen(BackupActionScreen.rollback(amount));
