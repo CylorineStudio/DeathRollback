@@ -32,6 +32,14 @@
 > [!WARNING]
 > 由于备份机制限制，本模组**仅支持单人游戏**，在多人游戏或局域网世界中不可用。
 
+## 客户端命令
+
+这些命令可以帮你手动管理当前世界的备份与回滚：
+
+- `/deathrollback backup` — 创建备份
+- `/deathrollback rollback` — 回滚到上一个备份
+- `/deathrollback delete` — 删除当前世界的备份
+
 ## 兼容性
 
 - **Mod 加载器**：仅支持 Fabric。

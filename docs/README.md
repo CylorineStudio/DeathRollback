@@ -35,6 +35,14 @@
 > [!WARNING]
 > Due to backup mechanism limitations, this mod is **Singleplayer only** and will not work in Multiplayer or LAN worlds.
 
+## Client Commands
+
+These commands allow you to manually manage backups and rollbacks for your current world:
+
+- `/deathrollback backup` — Creates a new backup.
+- `/deathrollback rollback` — Rolls back the world to the last backup.
+- `/deathrollback delete` — Deletes the backup for the current world.
+
 ## Compatibility
 
 - **Mod Loader**: Supports **Fabric** only.
